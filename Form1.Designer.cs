@@ -28,17 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panelTop = new System.Windows.Forms.Panel();
-            this.backgroundWorkerMain = new System.ComponentModel.BackgroundWorker();
-            this.btnClose = new System.Windows.Forms.Button();
             this.btnMinimize = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.backgroundWorkerMain = new System.ComponentModel.BackgroundWorker();
             this.panelMain = new System.Windows.Forms.Panel();
+            this.btnStart = new System.Windows.Forms.Button();
+            this.btnSelectDestinationFolder = new System.Windows.Forms.Button();
+            this.labelStatus = new System.Windows.Forms.Label();
             this.btnSelectFile = new System.Windows.Forms.Button();
             this.obtainFilePath = new System.Windows.Forms.OpenFileDialog();
-            this.labelStatus = new System.Windows.Forms.Label();
-            this.btnSelectDestinationFolder = new System.Windows.Forms.Button();
             this.obtainDestinationFolder = new System.Windows.Forms.FolderBrowserDialog();
-            this.btnStart = new System.Windows.Forms.Button();
             this.panelTop.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.SuspendLayout();
@@ -56,9 +57,20 @@
             this.panelTop.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelTop_MouseMove);
             this.panelTop.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panelTop_MouseUp);
             // 
-            // backgroundWorkerMain
+            // btnMinimize
             // 
-            this.backgroundWorkerMain.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorkerMain_DoWork);
+            this.btnMinimize.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnMinimize.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMinimize.Font = new System.Drawing.Font("Lato", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMinimize.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnMinimize.Location = new System.Drawing.Point(590, 0);
+            this.btnMinimize.Name = "btnMinimize";
+            this.btnMinimize.Size = new System.Drawing.Size(58, 48);
+            this.btnMinimize.TabIndex = 1;
+            this.btnMinimize.Text = "-";
+            this.btnMinimize.UseVisualStyleBackColor = true;
+            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
             // 
             // btnClose
             // 
@@ -75,20 +87,9 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // btnMinimize
+            // backgroundWorkerMain
             // 
-            this.btnMinimize.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnMinimize.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMinimize.Font = new System.Drawing.Font("Lato", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMinimize.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btnMinimize.Location = new System.Drawing.Point(590, 0);
-            this.btnMinimize.Name = "btnMinimize";
-            this.btnMinimize.Size = new System.Drawing.Size(58, 48);
-            this.btnMinimize.TabIndex = 1;
-            this.btnMinimize.Text = "-";
-            this.btnMinimize.UseVisualStyleBackColor = true;
-            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
+            this.backgroundWorkerMain.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorkerMain_DoWork);
             // 
             // panelMain
             // 
@@ -101,6 +102,51 @@
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(706, 456);
             this.panelMain.TabIndex = 1;
+            // 
+            // btnStart
+            // 
+            this.btnStart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnStart.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStart.Font = new System.Drawing.Font("Lato", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStart.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnStart.Location = new System.Drawing.Point(215, 173);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(276, 124);
+            this.btnStart.TabIndex = 5;
+            this.btnStart.Text = "START";
+            this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
+            // 
+            // btnSelectDestinationFolder
+            // 
+            this.btnSelectDestinationFolder.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnSelectDestinationFolder.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnSelectDestinationFolder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSelectDestinationFolder.Font = new System.Drawing.Font("Lato", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSelectDestinationFolder.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnSelectDestinationFolder.Location = new System.Drawing.Point(418, 16);
+            this.btnSelectDestinationFolder.Name = "btnSelectDestinationFolder";
+            this.btnSelectDestinationFolder.Size = new System.Drawing.Size(276, 76);
+            this.btnSelectDestinationFolder.TabIndex = 4;
+            this.btnSelectDestinationFolder.Text = "SELECT DESTINATION FOLDER";
+            this.btnSelectDestinationFolder.UseVisualStyleBackColor = true;
+            this.btnSelectDestinationFolder.Click += new System.EventHandler(this.btnSelectDestinationFolder_Click);
+            // 
+            // labelStatus
+            // 
+            this.labelStatus.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.labelStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.labelStatus.Font = new System.Drawing.Font("Lato", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.labelStatus.Location = new System.Drawing.Point(0, 387);
+            this.labelStatus.Name = "labelStatus";
+            this.labelStatus.Size = new System.Drawing.Size(706, 69);
+            this.labelStatus.TabIndex = 3;
+            this.labelStatus.Text = "...";
+            this.labelStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnSelectFile
             // 
@@ -121,51 +167,6 @@
             // 
             this.obtainFilePath.FileName = "openFileDialog1";
             // 
-            // labelStatus
-            // 
-            this.labelStatus.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.labelStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.labelStatus.Font = new System.Drawing.Font("Lato", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.labelStatus.Location = new System.Drawing.Point(0, 387);
-            this.labelStatus.Name = "labelStatus";
-            this.labelStatus.Size = new System.Drawing.Size(706, 69);
-            this.labelStatus.TabIndex = 3;
-            this.labelStatus.Text = "...";
-            this.labelStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnSelectDestinationFolder
-            // 
-            this.btnSelectDestinationFolder.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btnSelectDestinationFolder.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btnSelectDestinationFolder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSelectDestinationFolder.Font = new System.Drawing.Font("Lato", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSelectDestinationFolder.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btnSelectDestinationFolder.Location = new System.Drawing.Point(418, 16);
-            this.btnSelectDestinationFolder.Name = "btnSelectDestinationFolder";
-            this.btnSelectDestinationFolder.Size = new System.Drawing.Size(276, 76);
-            this.btnSelectDestinationFolder.TabIndex = 4;
-            this.btnSelectDestinationFolder.Text = "SELECT DESTINATION FOLDER";
-            this.btnSelectDestinationFolder.UseVisualStyleBackColor = true;
-            this.btnSelectDestinationFolder.Click += new System.EventHandler(this.btnSelectDestinationFolder_Click);
-            // 
-            // btnStart
-            // 
-            this.btnStart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnStart.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btnStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnStart.Font = new System.Drawing.Font("Lato", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStart.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btnStart.Location = new System.Drawing.Point(215, 173);
-            this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(276, 124);
-            this.btnStart.TabIndex = 5;
-            this.btnStart.Text = "START";
-            this.btnStart.UseVisualStyleBackColor = true;
-            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -175,6 +176,7 @@
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.panelTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Form1";
             this.panelTop.ResumeLayout(false);
